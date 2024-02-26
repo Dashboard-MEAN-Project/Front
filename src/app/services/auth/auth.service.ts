@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { User } from '../model/User';
+import { User } from '../../model/User';
 const login_url = 'http://localhost:5000/auth/login';
 const signup_url = 'http://localhost:5000/auth/register';
 
