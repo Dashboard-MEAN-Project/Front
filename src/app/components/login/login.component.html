@@ -1,0 +1,25 @@
+
+<div class=" container d-flex flex-column align-items-center bg-white h-100 mt-4">
+    <!-- <p class="">welcome to our website</p> -->
+    <h2 class="mb-4 fw-bold ">Login</h2>
+    <form class="border rounded   w-50 p-5 mt-2" [formGroup]="loginForm" (submit)="onSubmit($event)">
+        <app-input
+          [controlName]="loginForm.controls['email']"
+          [label]="'E-mail'"
+          [placeholder]="'email@example.com'"
+        ></app-input>
+      
+        <app-input
+          [controlName]="loginForm.controls['password']"
+          [inputType]="'password'"
+          [label]="'Password'"
+          [placeholder]="'********'"
+        ></app-input>
+        
+        <div class="d-flex justify-content-center mt-4 p-2">
+            <button class="btn btn-primary w-75">Login</button>
+        </div>
+        <p class="text-center mt-1 text-black-50">Don't have an account? <a class="cursor-pointer" routerLink="/signup">sign up</a></p>
+      </form>
+</div>
+
