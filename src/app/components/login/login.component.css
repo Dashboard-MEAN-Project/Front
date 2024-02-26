@@ -1,0 +1,8 @@
+form{
+    width: 75%;
+}
+@media (min-width: 992px){
+    form{
+        width: 40%;
+    }  
+}
