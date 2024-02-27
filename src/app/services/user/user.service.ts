@@ -5,9 +5,12 @@ const users_db = 'http://localhost:5000/users';
   providedIn: 'root'
 })
 export class UserService {
-
   constructor(private myclient: HttpClient) { }
   getAllUsers() {
     return this.myclient.get(users_db);
+    
   }
+
+
 }
+
