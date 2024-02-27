@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { User } from '../../model/User';
 const users_db = 'http://localhost:5000/users';
 @Injectable({
   providedIn: 'root',
@@ -7,7 +8,7 @@ const users_db = 'http://localhost:5000/users';
 export class UserService {
   constructor(private myclient: HttpClient) {}
   getAllUsers() {
-    return this.myclient.get(users_db, {
+    return this.myclient.get<User[]>(users_db, {
       headers: requestHeaders,
     });
   }
