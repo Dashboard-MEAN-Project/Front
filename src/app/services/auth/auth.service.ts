@@ -22,7 +22,7 @@ export class AuthService {
     });
   }
   createUser(data: User) {
-    this.myClint.post(signup_url, data);
+    return this.myClint.post(signup_url, data);
   }
 }
 // setToken(token: any) {

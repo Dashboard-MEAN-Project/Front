@@ -9,6 +9,7 @@
     [type]="inputType"
     [placeholder]="placeholder"
   />
+  <!-- ng-container is better than div because it is not a div -> div is shown in the file structure like  <></> in react  -->
   <ng-container
     *ngIf="controlName.invalid && (controlName.dirty || controlName.touched)"
     class="alert alert-danger"
