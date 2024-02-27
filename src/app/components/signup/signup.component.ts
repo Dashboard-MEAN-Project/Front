@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { InputComponent } from '../input/input.component';
 import {ReactiveFormsModule}from '@angular/forms';
 import { CommonModule } from '@angular/common';
-// import { AuthService } from '../../services/auth.service';
+import { AuthService } from '../../services/auth/auth.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 
@@ -15,8 +15,11 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.css'
 })
-export class SignupComponent {
 
+
+export class SignupComponent {
+  constructor(private authService:AuthService){
+  }
   signupForm: FormGroup = new FormGroup({
 
     name: new FormControl('', [
@@ -49,9 +52,9 @@ export class SignupComponent {
     event.preventDefault();
     if (this.signupForm.status === 'VALID') {
       const newUser = {...this.signupForm.value}
-      console.log(newUser);
+      // console.log(newUser);
       
-      // this.authService.login(user)
+      this.authService.createUser(newUser)
     } else {
       this.signupForm.markAllAsTouched();
       console.log('not valids');
