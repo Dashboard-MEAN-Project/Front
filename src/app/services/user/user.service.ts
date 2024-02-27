@@ -1,16 +1,19 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 const users_db = 'http://localhost:5000/users';
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserService {
-  constructor(private myclient: HttpClient) { }
+  constructor(private myclient: HttpClient) {}
   getAllUsers() {
-    return this.myclient.get(users_db);
-    
+    return this.myclient.get(users_db, {
+      headers: requestHeaders,
+    });
   }
-
-
 }
 
+const token = localStorage.getItem('token');
+const requestHeaders = {
+  Authorization: `Bearer ${token}`,
+};
