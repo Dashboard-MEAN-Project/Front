@@ -1,1 +1,50 @@
-<p>users works!</p>
+<div><h2 class="bg-light border text-center my-2 rounded py-1 text-primary " >Users table</h2></div>
+<div class="scrollable-table table-responsive ">
+<table class="table table-bordered table-striped mt-0 mb-0 text-center align-center">
+  <thead class="sticky-top bg-white">
+    <tr>
+      <th>Photo</th>
+      <th>Username</th>
+      <th>Email</th>
+      <th>Role</th>
+      <th>phone</th>
+      <th>gender</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for(user of users; track user._id){
+        <!-- @if(user.roles !== 'admin'){ -->
+    <tr>
+      <td><img [src]="user.gender === 'female' ? '../../../assets/images/femaleuser.png' : '../../../assets/images/maleuser.png'" class="rounded-circle"  width="50px"></td>
+      <td>{{ user.username }}</td>
+
+      <td>
+        {{ user.email }}
+      </td>
+      <td>
+        {{ user.roles }}
+      </td>
+      <td>
+        {{ user.phone }}
+      </td>
+      <td>
+        {{ user.gender }}
+      </td>
+      
+      <td>
+        <a routerLink="/dashboard/users/edit/{{ user._id }}" class="edit">
+          <i class="fa-solid fa-pen-to-square"></i
+        ></a>
+      </td>
+
+      <td>
+        <a class="delete"> <i class="fa-solid fa-trash"></i></a>
+      </td>
+    </tr>
+    }
+<!-- } -->
+  </tbody>
+</table>
+</div>

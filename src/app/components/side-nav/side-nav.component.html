@@ -1,2 +1,23 @@
-<h1 class="bg-primary">hi</h1>
+<div class="container-fluid">
+    <div class="row">
+      <div class="d-flex flex-column justify-content-between col-auto bg-primary min-vh-100">
+        <div class="mt-4">
+          <a routerLink="/" class="text-decoration-none d-flex align-items-center m-3 d-none d-sm-inline">
+            <img src="../../../assets/images/logo.jpg" alt="" width="120px">
+          </a>
+          <ul class="nav nav-pills flex-column pt-5 m-3">
+            <li class="nav-item my-2"><a routerLinkActive="active" routerLink="/dashboard/home"  class="nav-link text-white"><i class="icons fa-solid fa-house"></i><span class="ms-2 d-none d-sm-inline">Home</span></a></li>
+            <li class="nav-item my-2"><a routerLinkActive="active" routerLink="/dashboard/users" class="nav-link text-white"><i class=" icons fa-solid fa-user"></i><span class="ms-2 d-none d-sm-inline">Users</span> </a></li>
+            <li class="nav-item my-2"><a routerLinkActive="active" routerLink="/dashboard/products" class="nav-link text-white"><i class=" icons fa-solid fa-shop"></i><span class="ms-2 d-none d-sm-inline">Products</span> </a></li>
+            <li class="nav-item my-2"><a routerLinkActive="active" routerLink="/dashboard/products/add" class="nav-link text-white"><i class=" icons fa-solid fa-plus"></i><span class="ms-2 d-none d-sm-inline">AddProduct</span> </a></li>
+            <li class="nav-item my-2"><a routerLinkActive="active" routerLink="/" class="nav-link text-white"><i class=" icons fa-solid fa-arrow-right-from-bracket"></i><span class="ms-2 d-none d-sm-inline">Logout</span> </a></li>
+          </ul>
+        </div>
+        <div class="d-flex justify-content-center mb-3 m-3" >
+          <a routerLink='/admin' routerLinkActive="router-link-active" ><img src="../../../assets/images/femaleuser.png" alt="img" height="40" class="rounded-pill"></a>
+          <span class="p-2 text-light d-none d-sm-inline">Hello, Alyaa</span>
+        </div>
+      </div>
+    </div>
+  </div>
 
