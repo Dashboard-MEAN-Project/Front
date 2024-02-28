@@ -6,6 +6,7 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
 export const routes: Routes = [
   {path:"dashboard", component: DashboardComponent},
@@ -17,4 +18,5 @@ export const routes: Routes = [
   { path: 'dashboard/users', component: UsersComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
+  { path: 'dashboard/users/edit', component: UserProfileComponent},
 ];

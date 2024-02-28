@@ -1,1 +1,47 @@
-<p>users works!</p>
+<div class="scrollable-table">
+<table class="table table-bordered table-striped mt-0 mb-0">
+  <thead class="sticky-top bg-white">
+    <tr>
+      <th>Photo</th>
+      <th>Username</th>
+      <th>Email</th>
+      <th>Role</th>
+      <th>phone</th>
+      <th>gender</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for(user of users; track user.id){
+
+    <tr>
+      <td><img width="50px" src="{{ src }}" alt="" /></td>
+      <td>{{ user.username }}</td>
+
+      <td>
+        {{ user.email }}
+      </td>
+      <td>
+        {{ user.roles }}
+      </td>
+      <td>
+        {{ user.phone }}
+      </td>
+      <td>
+        {{ user.gender }}
+      </td>
+      <td>
+        <a routerLink="/dashboard/users/edit/{{ user.id }}" class="edit">
+          <i class="fa-solid fa-pen-to-square"></i
+        ></a>
+      </td>
+
+      <td>
+        <a class="delete"> <i class="fa-solid fa-trash"></i></a>
+      </td>
+    </tr>
+    }
+  </tbody>
+</table>
+</div>
