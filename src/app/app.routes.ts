@@ -9,7 +9,7 @@ import { AddProductComponent } from './components/add-product/add-product.compon
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
 export const routes: Routes = [
-  {path:"dashboard", component: DashboardComponent},
+  { path: 'dashboard', component: DashboardComponent },
   // { path: '', component: HomeComponent },
   // { path: '', component: LoginComponent },
   { path: 'dashboard/home', component: HomeComponent },
@@ -18,5 +18,5 @@ export const routes: Routes = [
   { path: 'dashboard/users', component: UsersComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
-  { path: 'dashboard/users/edit/:id', component: UserProfileComponent},
+  { path: 'dashboard/users/edit/:id', component: UserProfileComponent },
 ];

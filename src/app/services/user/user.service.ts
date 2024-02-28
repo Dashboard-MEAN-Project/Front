@@ -16,14 +16,19 @@ export class UserService {
   }
 
   getUserById(id: number) {
-    return this.myclient.get(users_db + '/' + id);
+    return this.myclient.get(users_db + '/' + id, { headers: requestHeaders });
   }
   updateUserDetails(id: number, newUserDetails: any) {
-    return this.myclient.put(editUser_db + '/' + id, { ...newUserDetails });
+    return this.myclient.patch(
+      editUser_db + '/' + id,
+      { ...newUserDetails },
+      { headers: requestHeaders }
+    );
   }
   DeleteUser(id: number) {
-    // console.log('deleeet');
-    return this.myclient.delete(deleteUsers_db + '/' + id);
+    return this.myclient.delete(deleteUsers_db + '/' + id, {
+      headers: requestHeaders,
+    });
   }
 }
 

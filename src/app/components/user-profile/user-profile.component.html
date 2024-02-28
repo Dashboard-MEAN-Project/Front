@@ -1,1 +1,43 @@
-<p>user-profile works!</p>
+<div class="main-container">
+  <form class="container d-flex" (submit)="changeUserDetails()">
+    @if(user){
+    <div>
+      <img width="50px" src="{{ src }}" alt="" />
+      <h4>{{ user.email }}</h4>
+      <div class="gender">
+        <label for="">Gender:</label>
+        <label>{{ user.gender }}</label>
+      </div>
+    </div>
+    <div class="inputs">
+      <div class="input">
+        <label for="username">Username</label>
+        <input type="text" [(ngModel)]="user.username" name="username" />
+      </div>
+      <div class="input">
+        <label for="username">E-mail</label>
+        <input type="text" [(ngModel)]="user.email" name="email" readonly />
+      </div>
+      <div class="input">
+        <label for="username">Phone</label>
+        <input type="text" [(ngModel)]="user.phone" name="phone" readonly />
+      </div>
+    </div>
+
+    <div class="role">
+      <label for="select">User's Role</label>
+      <select name="role" [(ngModel)]="user.role" id="select" class="w-5">
+        <option value="admin">admin</option>
+        <option value="user">user</option>
+      </select>
+    </div>
+    <div class="btns">
+      <div class="btns-1">
+        <button class="btn btn-primary" type="submit">Save Changes</button>
+        <button class="btn btn-secondary" (click)="cancel()">Cancel</button>
+      </div>
+    </div>
+
+    }
+  </form>
+</div>

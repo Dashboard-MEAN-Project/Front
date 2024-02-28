@@ -35,10 +35,22 @@ export class UsersComponent {
     });
   }
   ngOnInit() {
-    this.getUsers();
-  //   for (this.user of this.users){
-  //     if (this.user.gender === 'female') {
-  //       this.src = '../../../assets/images/femaleuser.png';
-  //     }
-  // }}
-}}
+    this.getUsers();}
+    delete(id: any) {
+     
+      this.userService.DeleteUser(id).subscribe(
+       {next:()=> {
+          location.reload();
+          alert('User deleted successfully.');
+        },
+        error:(error)=> {
+          console.error('Error deleting user:', error);
+          
+        }} 
+          );
+    }
+    logUser(user:any){
+      console.log(user);
+      
+    }
+}
