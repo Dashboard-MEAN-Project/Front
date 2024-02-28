@@ -1,0 +1,20 @@
+.scrollable-table {
+      max-height: 90vh; /* Set a maximum height for the scrollable area */
+      overflow-y: auto; /* Enable vertical scrolling */
+    }
+    .scrollable-table::-webkit-scrollbar {
+        width: 10px; /* Adjust scrollbar width */
+      }
+      
+      .scrollable-table::-webkit-scrollbar-track {
+        background: #f1f1f1; /* Track color */
+      }
+      
+      .scrollable-table::-webkit-scrollbar-thumb {
+        background: #888; /* Thumb color */
+        border-radius: 5px; /* Rounded corners */
+      }
+      
+      .scrollable-table::-webkit-scrollbar-thumb:hover {
+        background: #555; /* Thumb color on hover */
+      }
