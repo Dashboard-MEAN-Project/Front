@@ -27,6 +27,7 @@ export class UsersComponent {
       next: (value) => {
         this.users = value;
         console.log(this.users);
+        
       },
       error: (err) => {
         console.log(err);
@@ -35,9 +36,9 @@ export class UsersComponent {
   }
   ngOnInit() {
     this.getUsers();
-    for (this.user of this.users){
-      if (this.user.gender === 'female') {
-        this.src = '../../../assets/images/femaleuser.png';
-      }
-  }}
-}
+  //   for (this.user of this.users){
+  //     if (this.user.gender === 'female') {
+  //       this.src = '../../../assets/images/femaleuser.png';
+  //     }
+  // }}
+}}
