@@ -1,5 +1,6 @@
-<div class="scrollable-table">
-<table class="table table-bordered table-striped mt-0 mb-0">
+<div><h2 class="bg-light border text-center my-2 rounded py-1 text-primary " >Users table</h2></div>
+<div class="scrollable-table table-responsive ">
+<table class="table table-bordered table-striped mt-0 mb-0 text-center align-center">
   <thead class="sticky-top bg-white">
     <tr>
       <th>Photo</th>
@@ -13,10 +14,10 @@
     </tr>
   </thead>
   <tbody>
-    @for(user of users; track user.id){
-
+    @for(user of users; track user._id){
+        <!-- @if(user.roles !== 'admin'){ -->
     <tr>
-      <td><img width="50px" src="{{ src }}" alt="" /></td>
+      <td><img [src]="user.gender === 'female' ? '../../../assets/images/femaleuser.png' : '../../../assets/images/maleuser.png'" class="rounded-circle"  width="50px"></td>
       <td>{{ user.username }}</td>
 
       <td>
@@ -31,8 +32,9 @@
       <td>
         {{ user.gender }}
       </td>
+      
       <td>
-        <a routerLink="/dashboard/users/edit/{{ user.id }}" class="edit">
+        <a routerLink="/dashboard/users/edit/{{ user._id }}" class="edit">
           <i class="fa-solid fa-pen-to-square"></i
         ></a>
       </td>
@@ -42,6 +44,7 @@
       </td>
     </tr>
     }
+<!-- } -->
   </tbody>
 </table>
 </div>
