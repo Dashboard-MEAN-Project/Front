@@ -1,1 +1,82 @@
-<p>products works!</p>
+<div class="container-fluid bg-blue-custom py-5">
+    <div class="container-md rounded bg-eee-custom my-5 p-3">
+        <!-- title bar -->
+        <div class="title bg-off-white p-1 rounded d-flex border gap-2 ps-3">
+            <!-- title icon -->
+            <div class="icon p-1"><i class="fa-solid fa-list" style="color: rgba(9, 9, 36, 0.774);"></i></div>
+            <!-- title -->
+            <div>
+                <h4 class="fs-md-2" style="color: rgba(16, 16, 46, 0.842);">Product List</h4>
+            </div>
+        </div>
+
+
+        <!-- methods -->
+        <div class="method bg-off-white mt-3 border-end border-start border-top pt-3 ps-3 d-flex gap-3">
+            <!-- add -->
+            <a (click)="onAdd(1)" ><div class="add alert alert-success px-4 fs-custom justify-content-center align-items-center">
+                <div class="icon d-flex justify-content-center align-items-center gap-2">
+                    <p><i class="fa-solid fa-plus "></i></p>
+                    <P>ADD</P>
+                </div>
+            </div>
+        </a>
+            <!-- <i class="fa-solid fa-minus"></i> -->
+            <a href="#"> <div class="add alert alert-danger px-4 fs-custom justify-content-center align-items-center">
+                <div class="icon d-flex justify-content-center align-items-center gap-2">
+                    <p><i class="fa-solid fa-minus "></i></p>
+                    <P>Delete</P>
+                </div>
+            </div></a>
+
+        </div>
+        <!-- header -->
+        <div class="scrollable-table">
+            <table class="table table-bordered table-striped mt-0 mb-0">
+                <thead class="sticky-top bg-off-white ">
+                    <tr class="mb-2">
+                        <th class="mb-2">Image</th>
+                        <th class="mb-2">Title</th>
+                        <th class="mb-2">Price</th>
+                        <th>Amount</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for(ele of productsArr; track ele.id){
+
+                    <tr>
+                        <td><img width="50px" src="{{ ele }}" alt="" /></td>
+                        <td>{{ ele.title }}</td>
+                        <td>{{ ele.price }}</td>
+                        <td>{{ ele.numOfPro }}</td>
+
+
+
+
+
+
+
+                        <!-- <td>
+            <a routerLink="/dashboard/users/edit/{{ user.id }}" class="edit">
+              <i class="fa-solid fa-pen-to-square"></i
+            ></a>
+          </td> -->
+                    <td class="d-flex gap-5 justify-content-center "
+                    >
+                    <div (click)="editProduct()" class="edit-div rounded d-flex justify-content-center align-items-start pb-1"  style="width: 30px">
+                        <a class="edit"> <i class="fa-regular fa-pen-to-square"></i></a>
+                    </div>
+                   
+
+                    <div (click)="deleteProduct()" class="delete-div rounded d-flex justify-content-center align-items-start pb-1" style="width: 30px">
+                        <a class="delete"> <i class="fa-solid fa-trash  " style="color: rgba(233, 28, 28, 0.966);"></i></a>
+                    </div> 
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,129 @@
+.bg-eee-custom {
+    background-color: #eee;
+}
+
+.bg-blue-custom {
+    background-color: rgb(63, 111, 184);
+}
+
+.bg-off-white {
+    background-color: rgb(255, 254, 252);
+}
+
+P{
+    margin:0;
+}
+
+a{
+    text-decoration: none;
+}
+
+.delete-div:hover{
+    background-color: #bdbbbbf5;
+
+}
+.edit-div:hover{
+    background-color: #bdbbbb;
+
+}
+
+
+@media (max-width:505px) {
+    .fs-custom{
+        font-size: 12px;
+    }
+
+    
+    
+}
+
+@media (max-width:405px) {
+    .fs-custom{
+        font-size: 12px;
+    }
+  .add{  
+    height: 50px;
+    width: 80px;
+
+}
+.del{
+    height: 50px;
+    width: 50px;
+}
+
+    
+    
+}
+
+@media (max-width:300px)
+{
+    .add{
+        height: 50px;
+        width: 50px;
+
+    }
+    .del{
+        height: 50px;
+        width: 50px;
+    }
+    .fs-custom{
+        font-size: 10px;
+    }
+    .hidden{
+        display: none;
+    }
+}
+
+@media (max-width:200px)
+{
+    .add{
+        height: 20px;
+        width: 20px;
+
+    }
+    .del{
+        height: 20px;
+        width: 20px;
+    }
+    .fs-custom{
+        font-size: 8px;
+    }
+}
+
+@media (max-width:200px)
+{
+    .add{
+        height: 15px;
+        width: 15px;
+
+    }
+    .del{
+        height: 15px;
+        width: 15px;
+    }
+    .fs-custom{
+        font-size: 8px;
+    }
+}
+
+
+.scrollable-table {
+    max-height: 90vh; /* Set a maximum height for the scrollable area */
+    overflow-y: auto; /* Enable vertical scrolling */
+  }
+  .scrollable-table::-webkit-scrollbar {
+      width: 10px; /* Adjust scrollbar width */
+    }
+    
+    .scrollable-table::-webkit-scrollbar-track {
+      background: #f1f1f1; /* Track color */
+    }
+    
+    .scrollable-table::-webkit-scrollbar-thumb {
+      background: #888; /* Thumb color */
+      border-radius: 5px; /* Rounded corners */
+    }
+    
+    .scrollable-table::-webkit-scrollbar-thumb:hover {
+      background: #555; /* Thumb color on hover */
+    }
