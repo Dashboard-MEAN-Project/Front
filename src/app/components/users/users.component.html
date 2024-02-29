@@ -7,7 +7,7 @@
   <table
     class="table table-bordered table-striped mt-0 mb-0 text-center align-center align-middle"
   >
-    <thead class="sticky-top bg-white">
+    <thead class="sticky-top bg-white" style="z-index: 4">
       <tr>
         <th>Photo</th>
         <th>Username</th>
@@ -22,7 +22,7 @@
     <tbody>
       @for(user of users; track user._id){
       <!-- @if(user.roles !== 'admin'){ -->
-        @if(user.roles !== 'admin'){
+      <!-- @if(user.roles !== 'admin'){ -->
       <tr>
         <td>
           <img
@@ -50,19 +50,27 @@
           {{ user.gender }}
         </td>
         <td>
-          <a routerLink="/dashboard/users/edit/{{ user._id }}" (click)="logUser(user)" class="edit">
+          <a
+            routerLink="/dashboard/users/edit/{{ user._id }}"
+            (click)="logUser(user)"
+            class="edit"
+          >
             <i class="fa-solid fa-pen-to-square"></i
           ></a>
         </td>
 
         <td>
-          <a class="delete" (click)="delete(user._id)">
+          <a class="delete" (click)="openModal(user._id)">
             <i class="fa-solid fa-trash"></i
           ></a>
         </td>
       </tr>
-      } 
-    }
+      }
+      <!-- } -->
     </tbody>
   </table>
 </div>
+<app-confirmation
+  (confirmed)="confirmAction()"
+  (cancelled)="cancelAction()"
+></app-confirmation>
