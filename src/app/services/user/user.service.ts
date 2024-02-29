@@ -2,8 +2,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from '../../model/User';
 const users_db = 'http://localhost:5000/users';
-const editUser_db = 'http://localhost:5000/users/users';
-const deleteUsers_db = 'http://localhost:5000/Users/users';
+const editUser_db = 'http://localhost:5000/users/updateuser';
+const deleteUsers_db = 'http://localhost:5000/users/deleteuser';
 @Injectable({
   providedIn: 'root',
 })
@@ -16,7 +16,7 @@ export class UserService {
   }
 
   getUserById(id: number) {
-    return this.myclient.get(users_db + '/' + id, { headers: requestHeaders });
+    return this.myclient.get(users_db + '/users/updateuser' + id, { headers: requestHeaders });
   }
   updateUserDetails(id: number, newUserDetails: any) {
     return this.myclient.patch(
