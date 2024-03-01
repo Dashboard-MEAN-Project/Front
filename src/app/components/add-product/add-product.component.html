@@ -1,1 +1,43 @@
-<p>add-product works!</p>
+<div class=" container-md  d-flex flex-column align-items-center h-100 mt-4">
+    <!-- <p class="">welcome to our website</p> -->
+    <h2 class="mb-4 fw-bold ">Add Product</h2>
+    <form class="border rounded-4 p-5 mt-2 " [formGroup]="AddProductForm" (submit)="onSubmit($event)">
+        <app-input [controlName]="AddProductForm.controls['imageUrl']" [inputType]="'file'" [label]="'Product Image'"
+            [placeholder]="'upload img'"></app-input>
+
+
+        <app-input [controlName]="AddProductForm.controls['title']" [label]="'Title'"
+            [placeholder]="'title..'"></app-input>
+
+        <app-input [controlName]="AddProductForm.controls['price']" [label]="'price'"
+            [placeholder]="'price..'"></app-input>
+
+            <app-input [controlName]="AddProductForm.controls['category']" [label]="'Category'"
+            [placeholder]="'category...'"></app-input>
+
+        <app-input [controlName]="AddProductForm.controls['description']" [label]="'description'"
+            [placeholder]="'description'"></app-input>
+
+
+
+
+
+
+        <!-- <app-input
+        [controlName]="signupForm.controls['gender']"
+        [inputType]="'radio'"
+        [label]="'female'"
+        [placeholder]="''"
+        
+      ></app-input> -->
+
+
+
+
+
+
+        <div class="d-flex justify-content-center mt-4 p-2">
+            <button class="btn btn-primary w-75">ADD</button>
+        </div>
+    </form>
+</div>

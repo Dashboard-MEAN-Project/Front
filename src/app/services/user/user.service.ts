@@ -25,6 +25,7 @@ export class UserService {
       { headers: requestHeaders }
     );
   }
+  
   DeleteUser(id: number) {
     return this.myclient.delete(deleteUsers_db + '/' + id, {
       headers: requestHeaders,

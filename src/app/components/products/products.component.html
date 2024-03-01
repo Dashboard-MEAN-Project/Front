@@ -38,7 +38,7 @@
                         <th class="mb-2">Image</th>
                         <th class="mb-2">Title</th>
                         <th class="mb-2">Price</th>
-                        <th>Amount</th>
+                        <th>Category</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -49,30 +49,24 @@
                         <td><img width="50px" src="{{ ele }}" alt="" /></td>
                         <td>{{ ele.title }}</td>
                         <td>{{ ele.price }}</td>
-                        <td>{{ ele.numOfPro }}</td>
-
-
-
-
-
-
-
+                        <td>{{ ele.category?.title}}</td>
                         <!-- <td>
-            <a routerLink="/dashboard/users/edit/{{ user.id }}" class="edit">
-              <i class="fa-solid fa-pen-to-square"></i
-            ></a>
-          </td> -->
-                    <td class="d-flex gap-5 justify-content-center "
-                    >
-                    <div (click)="editProduct()" class="edit-div rounded d-flex justify-content-center align-items-start pb-1"  style="width: 30px">
-                        <a class="edit"> <i class="fa-regular fa-pen-to-square"></i></a>
-                    </div>
-                   
-
-                    <div (click)="deleteProduct()" class="delete-div rounded d-flex justify-content-center align-items-start pb-1" style="width: 30px">
-                        <a class="delete"> <i class="fa-solid fa-trash  " style="color: rgba(233, 28, 28, 0.966);"></i></a>
-                    </div> 
-                        </td>
+                            <a routerLink="/dashboard/users/edit/{{ user.id }}" class="edit">
+                            <i class="fa-solid fa-pen-to-square"></i
+                            ></a>
+                        </td> -->
+                         <td class="d-flex gap-5 justify-content-center ">
+                        <div (click)="editProduct()" class="edit-div rounded d-flex justify-content-center align-items-start pb-1"
+                            style="width: 30px">
+                            <a class="edit"> <i class="fa-regular fa-pen-to-square"></i></a>
+                        </div>
+                    
+                    
+                        <div (click)="deleteProduct(ele._id)" class="delete-div rounded d-flex justify-content-center align-items-start pb-1"
+                            style="width: 30px">
+                            <a class="delete"> <i class="fa-solid fa-trash  " style="color: rgba(233, 28, 28, 0.966);"></i></a>
+                        </div>
+                    </td>
                     </tr>
                     }
                 </tbody>
