@@ -5,11 +5,16 @@ import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 @Component({
   selector: 'app-side-nav',
   standalone: true,
-  imports: [RouterLink,RouterLinkActive],
-  
+  imports: [RouterLink, RouterLinkActive],
+
   templateUrl: './side-nav.component.html',
-  styleUrl: './side-nav.component.css'
+  styleUrl: './side-nav.component.css',
 })
 export class SideNavComponent {
-
+  constructor(private router: Router) {}
+  logOut() {
+    this.router.navigate(['/']);
+    localStorage.removeItem('token');
+    localStorage.removeItem('roles');
+  }
 }
