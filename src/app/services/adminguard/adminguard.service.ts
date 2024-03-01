@@ -9,6 +9,7 @@ export class AdminguardService {
   canActivate(): boolean {
     if (role === 'admin' && token) {
       console.log('go to home');
+      this.router.navigate(['/dashboard/home']);
       return true;
     } else {
       this.router.navigate(['/']);

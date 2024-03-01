@@ -19,7 +19,9 @@
           <li class="nav-item my-2">
             <a
               routerLinkActive="active"
-              routerLink="/dashboard/home"
+              [routerLinkActiveOptions]="{ exact: true }"
+              routerLinkActive="active"
+              routerLink="/dashboard"
               class="nav-link text-white"
               ><i class="icons fa-solid fa-house"></i
               ><span class="ms-2 d-none d-sm-inline">Home</span></a
@@ -28,6 +30,7 @@
           <li class="nav-item my-2">
             <a
               routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
               routerLink="/dashboard/users"
               class="nav-link text-white"
               ><i class="icons fa-solid fa-user"></i
@@ -37,6 +40,7 @@
           <li class="nav-item my-2">
             <a
               routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
               routerLink="/dashboard/products"
               class="nav-link text-white"
               ><i class="icons fa-solid fa-shop"></i
@@ -46,6 +50,7 @@
           <li class="nav-item my-2">
             <a
               routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
               routerLink="/dashboard/products/add"
               class="nav-link text-white"
               ><i class="icons fa-solid fa-plus"></i
@@ -55,6 +60,7 @@
           <li class="nav-item my-2">
             <a
               routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
               (click)="logOut()"
               class="nav-link text-white"
               ><i class="icons fa-solid fa-arrow-right-from-bracket"></i
