@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row row-cols-2 row-cols-sm-2 row-cols-md-4 text-center gap-5">
+    <div class="card col-3" style="width: 18rem">
+      <img
+        src="{{ oneproduct.imageUrl }}"
+        class="card-img-top"
+        alt="{{ oneproduct.imageUrl }}"
+        height="250px"
+      />
+      <div class="card-body">
+        <h5 class="card-title">{{ oneproduct.title }}</h5>
+        <p class="card-text">{{ oneproduct.description }}</p>
+        <h6 class="card-text" style="color: rgb(187, 54, 10); font-weight: 900">
+          {{ oneproduct.price }}$
+        </h6>
+      </div>
+    </div>
+  </div>
+</div>
