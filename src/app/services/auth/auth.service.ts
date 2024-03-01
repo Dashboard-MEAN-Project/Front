@@ -9,24 +9,26 @@ const signup_url = 'http://localhost:5000/auth/register';
 })
 export class AuthService {
   constructor(private myClint: HttpClient) {}
+  // login(user: any) {
+  //   this.myClint.post(login_url, user).subscribe({
+  //     next: (response: any) => {
+  //       const token = response.accessToken;
+  //       console.log(token);
+  //       localStorage.setItem('token', token);
+  //       const role = response;
+  //       console.log(role);
+  //       localStorage.setItem('roles', role);
+
+  //       return token;
+  //     },
+  //     error: (err) => console.log(err),
+  //   });
+  // }
+
   login(user: any) {
-    this.myClint.post(login_url, user).subscribe({
-      next: (response:any) => {
-        const token=response.accessToken
-       console.log(token);
-       localStorage.setItem("token",token)
-       return token
-        
-      },
-      error: (err) => console.log(err),
-    });
+    return this.myClint.post(login_url, user);
   }
   createUser(data: User) {
     return this.myClint.post(signup_url, data);
   }
 }
-// setToken(token: any) {
-//   localStorage.setItem('key', 'token');
-// }
-// let x = this.myService.setToken('asdfghjkl;');
-// console.log(x);
