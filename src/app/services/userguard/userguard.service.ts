@@ -9,7 +9,8 @@ export class UserguardService {
   constructor(private router: Router) {}
   canActivate(): boolean {
     if (role === 'user' && token) {
-      console.log('go to home');
+      this.router.navigate(['/userhome']);
+
       return true;
     } else {
       this.router.navigate(['/']);
