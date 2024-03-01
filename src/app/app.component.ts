@@ -6,11 +6,23 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HomeComponent } from './components/home/home.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { ProductsComponent } from './components/products/products.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { UserProductsComponent } from './components/user-products/user-products.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, SignupComponent,ProductsComponent, InputComponent,LoginComponent,DashboardComponent,HomeComponent],
+  imports: [
+    RouterOutlet,
+    SignupComponent,
+    ProductsComponent,
+    InputComponent,
+    LoginComponent,
+    DashboardComponent,
+    HomeComponent,
+    NavbarComponent,
+    UserProductsComponent,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
