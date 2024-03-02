@@ -7,16 +7,34 @@ import { HomeComponent } from './components/home/home.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { ErrorComponent } from './components/error/error.component';
+import { UserhomeComponent } from './components/userhome/userhome.component';
+import { AdminguardService } from './services/adminguard/adminguard.service';
+import { UserguardService } from './services/userguard/userguard.service';
 
 export const routes: Routes = [
-  { path: 'dashboard', component: DashboardComponent },
-  // { path: '', component: HomeComponent },
+  {
+    path: 'userhome',
+    component: UserhomeComponent,
+    canActivate: [UserguardService],
+  },
   // { path: '', component: LoginComponent },
-  { path: 'dashboard/home', component: HomeComponent },
-  { path: 'dashboard/products', component: ProductsComponent },
-  { path: 'dashboard/products/add', component: AddProductComponent },
-  { path: 'dashboard/users', component: UsersComponent },
-  { path: 'login', component: LoginComponent },
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    canActivate: [AdminguardService],
+    children: [
+      { path: '', component: HomeComponent },
+      { path: 'products', component: ProductsComponent },
+      { path: 'products/add', component: AddProductComponent },
+      { path: 'users', component: UsersComponent },
+      { path: 'users/edit/:id', component: UserProfileComponent },
+    ],
+  },
+  { path: '', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
-  { path: 'dashboard/users/edit/:id', component: UserProfileComponent },
+  { path: '*', component: ErrorComponent },
 ];
+
+// ,
+// canActivate: [AdminguardService]

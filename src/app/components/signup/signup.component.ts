@@ -5,7 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../services/auth/auth.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { Route, Router, RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -22,12 +22,12 @@ import { Route, Router, RouterModule } from '@angular/router';
   styleUrl: './signup.component.css',
 })
 export class SignupComponent {
-  constructor(
-    private authService: AuthService,
-    private readonly route: Router
-  ) {}
+  constructor(private authService: AuthService, private route: Router) {}
   signupForm: FormGroup = new FormGroup({
-    name: new FormControl('', [Validators.required, Validators.maxLength(8)]),
+    username: new FormControl('', [
+      Validators.required,
+      Validators.maxLength(8),
+    ]),
 
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [
@@ -52,7 +52,7 @@ export class SignupComponent {
       this.authService.createUser(newUser).subscribe({
         next: (value) => {
           console.log(value);
-          this.route.navigate(['/login']);
+          this.route.navigate(['/']);
         },
       });
     } else {

@@ -8,8 +8,7 @@ import { SignupComponent } from './components/signup/signup.component';
 import { ProductsComponent } from './components/products/products.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { UserProductsComponent } from './components/user-products/user-products.component';
-import { AddProductComponent } from './components/add-product/add-product.component';
-import { EditProductComponent } from './components/edit-product/edit-product.component';
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -26,6 +25,7 @@ import { EditProductComponent } from './components/edit-product/edit-product.com
     AddProductComponent,
     EditProductComponent,
   ],
+  providers: [UserguardService],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })

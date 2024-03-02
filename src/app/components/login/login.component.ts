@@ -8,38 +8,59 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../services/auth/auth.service';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
+import { routes } from '../../app.routes';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [InputComponent, ReactiveFormsModule, CommonModule,HttpClientModule],
-  providers:[AuthService],
+  imports: [
+    InputComponent,
+    ReactiveFormsModule,
+    CommonModule,
+    HttpClientModule,
+    RouterLink,
+    RouterLinkActive,
+  ],
+  providers: [AuthService],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })
 export class LoginComponent {
-  constructor(private authService:AuthService){
-
-  }
+  constructor(private authService: AuthService, private route: Router) {}
   loginForm: FormGroup = new FormGroup({
-    email: new FormControl('', [
-      Validators.required,
-      Validators.email,
-      
-    ]),
+    email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [
       Validators.required,
       Validators.minLength(3),
-      Validators.maxLength(30)
+      Validators.maxLength(30),
     ]),
   });
 
   onSubmit(event: Event) {
     event.preventDefault();
     if (this.loginForm.status === 'VALID') {
-      const user = {...this.loginForm.value}
-      this.authService.login(user)
+      let user = { ...this.loginForm.value };
+      this.authService.login(user).subscribe({
+        next: (response: any) => {
+          let token = response.accessToken;
+          // console.log(token);
+          localStorage.setItem('token', token);
+          let role = response.roles;
+          // console.log(role);
+          localStorage.setItem('roles', role);
+          if (role === 'admin') {
+            this.route.navigate(['/dashboard']);
+          } else if (role === 'user') {
+            this.route.navigate(['/userhome']);
+          } else {
+            this.route.navigate(['/']);
+          }
+
+          return token;
+        },
+      });
     } else {
       this.loginForm.markAllAsTouched();
       console.log('not valids');
