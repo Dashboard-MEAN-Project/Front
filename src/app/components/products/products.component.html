@@ -1,4 +1,4 @@
-<div class="container-fluid bg-blue-custom py-5">
+<div class="container-fluid py-5">
     <div class="container-md rounded bg-eee-custom my-5 p-3">
         <!-- title bar -->
         <div class="title bg-off-white p-1 rounded d-flex border gap-2 ps-3">
@@ -12,24 +12,7 @@
 
 
         <!-- methods -->
-        <div class="method bg-off-white mt-3 border-end border-start border-top pt-3 ps-3 d-flex gap-3">
-            <!-- add -->
-            <a (click)="onAdd(1)" ><div class="add alert alert-success px-4 fs-custom justify-content-center align-items-center">
-                <div class="icon d-flex justify-content-center align-items-center gap-2">
-                    <p><i class="fa-solid fa-plus "></i></p>
-                    <P>ADD</P>
-                </div>
-            </div>
-        </a>
-            <!-- <i class="fa-solid fa-minus"></i> -->
-            <a href="#"> <div class="add alert alert-danger px-4 fs-custom justify-content-center align-items-center">
-                <div class="icon d-flex justify-content-center align-items-center gap-2">
-                    <p><i class="fa-solid fa-minus "></i></p>
-                    <P>Delete</P>
-                </div>
-            </div></a>
-
-        </div>
+        
         <!-- header -->
         <div class="scrollable-table">
             <table class="table table-bordered table-striped mt-0 mb-0">
@@ -46,7 +29,7 @@
                     @for(ele of productsArr; track ele.id){
 
                     <tr>
-                        <td><img width="50px" src="{{ ele }}" alt="" /></td>
+                        <td><img width="50px" [src]=" ele.imageUrl " alt="" /></td>
                         <td>{{ ele.title }}</td>
                         <td>{{ ele.price }}</td>
                         <td>{{ ele.category?.title}}</td>
@@ -56,7 +39,7 @@
                             ></a>
                         </td> -->
                          <td class="d-flex gap-5 justify-content-center ">
-                        <div (click)="editProduct()" class="edit-div rounded d-flex justify-content-center align-items-start pb-1"
+                        <div (click)="editProduct(ele._id)" class="edit-div rounded d-flex justify-content-center align-items-start pb-1"
                             style="width: 30px">
                             <a class="edit"> <i class="fa-regular fa-pen-to-square"></i></a>
                         </div>

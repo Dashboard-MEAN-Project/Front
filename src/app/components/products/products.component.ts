@@ -45,8 +45,8 @@ deleteProduct(productID:any){this.myService.deleteProduct(productID).subscribe({
 }})}
 
 
-editProduct(){
-  console.log("edit");
+editProduct(id:any){
+  this.route.navigate(["/edit",id])
   
 }
 

@@ -1,0 +1,25 @@
+<div class=" container-md  d-flex flex-column align-items-center h-100 mt-4">
+    <!-- <p class="">welcome to our website</p> -->
+    <h2 class="mb-4 fw-bold ">Edit Product</h2>
+    <form class="border rounded-4 p-5 mt-2 " [formGroup]="EditProductForm" (submit)="onSubmit($event)">
+        <app-input [controlName]="EditProductForm.controls['imageUrl']" [inputType]="'file'" [label]="'Product Image'"
+            [placeholder]="'upload img'"></app-input>
+
+        <app-input [controlName]="EditProductForm.controls['title']" [label]="'Title'"
+            [placeholder]="'title..'"></app-input>
+
+
+        <app-input [controlName]="EditProductForm.controls['category']" [label]="'Category'"
+            [placeholder]="'category..'"></app-input>
+
+        <app-input [controlName]="EditProductForm.controls['price']" [label]="'Price'"
+            [placeholder]="'price..'"></app-input>
+
+        <app-input [controlName]="EditProductForm.controls['description']" [label]="'Description'"
+            [placeholder]="'description'"></app-input>
+
+        <div class="d-flex justify-content-center mt-4 p-2">
+            <button class="btn btn-primary w-75">SAVE</button>
+        </div>
+    </form>
+</div>

@@ -9,7 +9,7 @@ import { ProductsComponent } from './components/products/products.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { UserProductsComponent } from './components/user-products/user-products.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
-
+import { EditProductComponent } from './components/edit-product/edit-product.component';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -23,7 +23,8 @@ import { AddProductComponent } from './components/add-product/add-product.compon
     HomeComponent,
     NavbarComponent,
     UserProductsComponent,
-    AddProductComponent
+    AddProductComponent,
+    EditProductComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
