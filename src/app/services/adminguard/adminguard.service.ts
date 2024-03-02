@@ -7,15 +7,15 @@ import { Router } from '@angular/router';
 export class AdminguardService {
   constructor(private router: Router) {}
   canActivate(): boolean {
+    const token = localStorage.getItem('token');
+    const role = localStorage.getItem('roles');
     if (role === 'admin' && token) {
-      console.log('go to home');
-      this.router.navigate(['/dashboard/home']);
+      // console.log('go to home');
+      // this.router.navigate(['/dashboard']);
       return true;
     } else {
-      this.router.navigate(['/']);
+      // this.router.navigate(['/']);
       return false;
     }
   }
 }
-const token = localStorage.getItem('token');
-const role = localStorage.getItem('roles');

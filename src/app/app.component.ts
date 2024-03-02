@@ -8,6 +8,9 @@ import { SignupComponent } from './components/signup/signup.component';
 import { ProductsComponent } from './components/products/products.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { UserProductsComponent } from './components/user-products/user-products.component';
+import { AddProductComponent } from './components/add-product/add-product.component';
+import { EditProductComponent } from './components/edit-product/edit-product.component';
+import { UserguardService } from './services/userguard/userguard.service';
 
 @Component({
   selector: 'app-root',

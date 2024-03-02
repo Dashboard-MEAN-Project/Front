@@ -5,7 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../services/auth/auth.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { Route, Router, RouterModule } from '@angular/router';
+import { ActivatedRoute, Route, Router, RouterModule } from '@angular/router';
 import { ProductService } from '../../services/product/product.service';
 import { ProductsComponent } from '../products/products.component';
 @Component({
@@ -25,17 +25,20 @@ import { ProductsComponent } from '../products/products.component';
   styleUrl: './edit-product.component.css',
 })
 export class EditProductComponent {
-
- constructor(
+  _id: any;
+  constructor(
+    myRoute: ActivatedRoute,
     private readonly route: Router,
     private productService: ProductService
-  ) {}
+  ) {
+    this._id = myRoute.snapshot.params['id'];
+  }
   EditProductForm: FormGroup = new FormGroup({
     imageUrl: new FormControl(''),
     title: new FormControl(''),
     description: new FormControl(''),
     price: new FormControl(''),
-    category:new FormControl('')
+    category: new FormControl(''),
   });
 
   onSubmit(event: Event) {
@@ -44,7 +47,7 @@ export class EditProductComponent {
       const editedpro = { ...this.EditProductForm.value };
       console.log(editedpro);
 
-      this.productService.editProduct(id,editedpro).subscribe({
+      this.productService.editProduct(this._id, editedpro).subscribe({
         next: (value) => {
           console.log(value);
           this.route.navigate(['/products']);
@@ -56,5 +59,3 @@ export class EditProductComponent {
     }
   }
 }
-
-

@@ -10,7 +10,6 @@ import { CommonModule } from '@angular/common';
 import { AuthService } from '../../services/auth/auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
-import { routes } from '../../app.routes';
 
 @Component({
   selector: 'app-login',

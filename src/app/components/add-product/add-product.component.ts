@@ -27,7 +27,7 @@ import { ProductsComponent } from '../products/products.component';
 export class AddProductComponent {
   constructor(
     private authService: AuthService,
-    private readonly route: Router,
+    private route: Router,
     private productService: ProductService
   ) {}
   AddProductForm: FormGroup = new FormGroup({
@@ -36,7 +36,6 @@ export class AddProductComponent {
     description: new FormControl(''),
     price: new FormControl(''),
     category: new FormControl(''),
-
   });
 
   onSubmit(event: Event) {
