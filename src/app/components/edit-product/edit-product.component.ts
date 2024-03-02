@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { InputComponent } from '../input/input.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -9,7 +9,7 @@ import { Route, Router, RouterModule } from '@angular/router';
 import { ProductService } from '../../services/product/product.service';
 import { ProductsComponent } from '../products/products.component';
 @Component({
-  selector: 'app-add-product',
+  selector: 'app-edit-product',
   standalone: true,
 
   imports: [
@@ -20,45 +20,41 @@ import { ProductsComponent } from '../products/products.component';
     RouterModule,
     ProductsComponent,
   ],
-  providers: [ProductService, HttpClient, AuthService],
-  templateUrl: './add-product.component.html',
-  styleUrl: './add-product.component.css',
+  providers: [ProductService, HttpClient],
+  templateUrl: './edit-product.component.html',
+  styleUrl: './edit-product.component.css',
 })
-export class AddProductComponent {
-  constructor(
-    private authService: AuthService,
+export class EditProductComponent {
+
+ constructor(
     private readonly route: Router,
     private productService: ProductService
   ) {}
-  AddProductForm: FormGroup = new FormGroup({
+  EditProductForm: FormGroup = new FormGroup({
     imageUrl: new FormControl(''),
     title: new FormControl(''),
     description: new FormControl(''),
     price: new FormControl(''),
-    category: new FormControl(''),
-
+    category:new FormControl('')
   });
 
   onSubmit(event: Event) {
     event.preventDefault();
-    if (this.AddProductForm.status === 'VALID') {
-      const newpro = { ...this.AddProductForm.value };
-      console.log(newpro);
+    if (this.EditProductForm.status === 'VALID') {
+      const editedpro = { ...this.EditProductForm.value };
+      console.log(editedpro);
 
-      this.productService.addProduct(newpro).subscribe({
+      this.productService.editProduct(id,editedpro).subscribe({
         next: (value) => {
-          // console.log(value);
-          console.log('value');
-
+          console.log(value);
           this.route.navigate(['/products']);
-        },
-        error: (err) => {
-          console.log(err);
         },
       });
     } else {
-      this.AddProductForm.markAllAsTouched();
+      this.EditProductForm.markAllAsTouched();
       console.log('not valids');
     }
   }
 }
+
+

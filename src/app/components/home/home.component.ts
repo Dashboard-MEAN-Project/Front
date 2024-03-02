@@ -3,19 +3,23 @@ import { Router, RouterModule } from '@angular/router';
 import { UserService } from '../../services/user/user.service';
 import { HttpClientModule } from '@angular/common/http';
 import { User } from '../../model/User';
+import { ProductService } from '../../services/product/product.service';
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [RouterModule,HttpClientModule],
-  providers:[UserService],
+  providers:[UserService,ProductService],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
 export class HomeComponent implements OnInit {
   users:User[]=[]
-  
-constructor(private userservice: UserService){}
+  products:any;
+constructor(
+  private userservice: UserService,
+  private productService: ProductService
+  ){}
   ngOnInit() {
     this.userservice.getAllUsers().subscribe({
       next: (data) => {
@@ -26,7 +30,10 @@ constructor(private userservice: UserService){}
         console.log(err);
       },
     });
+    this.productService.getAllProductss().subscribe({next:(data)=>{this.products=data}})
+
   }
+
 
 }
 
